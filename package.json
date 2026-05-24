@@ -1,0 +1,29 @@
+{
+  "name": "moeez-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Premium BI/Data analyst portfolio",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.17",
+    "next": "^14.2.33",
+    "openai": "^6.34.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^3.8.1",
+    "resend": "^6.12.2"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.14",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.9.3",
+    "vercel": "^51.8.0"
+  }
+}

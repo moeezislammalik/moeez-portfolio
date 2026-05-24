@@ -1,0 +1,320 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Scheme C: minimal monochrome + single blue accent ─ */
+:root {
+  --bg: #ffffff;
+  --bg-subtle: #f5f5f5;
+  --bg-elevated: #fafafa;
+  --text: #0a0a0a;
+  --text-muted: #525252;
+  --text-faint: #737373;
+  --border: #e5e5e5;
+  --border-strong: #d4d4d4;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-muted: rgba(37, 99, 235, 0.08);
+  --accent-line: rgba(37, 99, 235, 0.35);
+
+  /* Editorial navy — third color, used for accent panels */
+  --navy: #0b1e3f;
+  --navy-soft: #122c54;
+
+  /* Categorical accents — used sparingly for badges & dots */
+  --cat-blue: #2563eb;    /* BI / analytics */
+  --cat-emerald: #059669; /* leadership / community */
+  --cat-amber: #d97706;   /* admissions / hospitality */
+  --cat-violet: #7c3aed;  /* academic support / tutoring */
+  --cat-rose: #e11d48;    /* international / cultural */
+}
+
+.dark {
+  --bg: #0a0a0a;
+  --bg-subtle: #111111;
+  --bg-elevated: #141414;
+  --text: #f5f5f5;
+  --text-muted: #a3a3a3;
+  --text-faint: #737373;
+  --border: #262626;
+  --border-strong: #404040;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-muted: rgba(59, 130, 246, 0.12);
+  --accent-line: rgba(59, 130, 246, 0.4);
+
+  --navy: #14254a;
+  --navy-soft: #1d3261;
+
+  --cat-blue: #60a5fa;
+  --cat-emerald: #34d399;
+  --cat-amber: #fbbf24;
+  --cat-violet: #a78bfa;
+  --cat-rose: #fb7185;
+}
+
+.dark #campus,
+.dark #leadership {
+  background-color: var(--bg);
+}
+
+.dark #campus .campus-bg-layer,
+.dark #leadership .campus-bg-layer {
+  display: none;
+}
+
+.dark #campus .campus-card,
+.dark #leadership .campus-card {
+  background-color: var(--bg-elevated);
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased;
+  background-color: var(--bg);
+  color: var(--text);
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+/* ─── Layout ─────────────────────────────────────────── */
+/* Canvas fills the page width with comfortable side gutters that
+   scale with the viewport. Cap kicks in only on very large displays
+   so reading widths inside (max-w-2xl, etc.) stay sensible. */
+.section-wrap {
+  width: 100%;
+  max-width: 1800px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 2.5vw, 2.25rem);
+}
+
+/* Hero grid — single column on mobile, name + chart side-by-side from tablet up */
+.hero-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 768px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  }
+}
+@media (min-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+}
+@media (min-width: 1400px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  }
+}
+
+/* ─── Data-grid background (analyst aesthetic) ───────── */
+.data-grid-bg {
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center top;
+}
+
+.dark .data-grid-bg {
+  opacity: 0.35;
+}
+
+/* ─── Components ─────────────────────────────────────── */
+@layer components {
+  .section-label {
+    @apply font-mono-label text-[10px] font-medium uppercase tracking-[0.2em] text-ink-faint;
+  }
+
+  .section-title {
+    @apply font-display text-3xl font-normal tracking-tight text-ink md:text-4xl lg:text-[44px];
+  }
+
+  .analyst-card {
+    @apply rounded-lg border border-border bg-surface transition-shadow duration-300;
+  }
+
+  .analyst-card:hover {
+    @apply shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-ink px-5 py-3 text-sm font-medium text-surface transition-all duration-200 dark:bg-surface dark:text-ink;
+  }
+
+  .btn-primary:hover {
+    @apply -translate-y-0.5 shadow-md;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-border-strong bg-surface px-5 py-3 text-sm font-medium text-ink-muted transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply border-accent text-accent -translate-y-0.5;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center rounded-md bg-accent px-5 py-3 text-sm font-medium text-white transition-all duration-200;
+  }
+
+  .btn-accent:hover {
+    @apply bg-accent-hover -translate-y-0.5 shadow-md;
+  }
+
+  .nav-link {
+    @apply relative shrink-0 px-2 py-1.5 text-[11px] font-medium text-ink-muted transition-colors sm:text-xs;
+  }
+
+  .nav-link:hover {
+    @apply text-ink;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute bottom-0 left-2 right-2 h-px scale-x-0 bg-accent transition-transform duration-200;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  .timeline-line {
+    @apply absolute left-[7px] top-2 bottom-2 w-px bg-border;
+  }
+
+  .timeline-dot {
+    @apply absolute left-0 top-2 h-[15px] w-[15px] rounded-full border-2 border-accent bg-surface;
+  }
+
+  /* Category dot — small filled circle, uses CSS var for color */
+  .cat-dot {
+    @apply inline-block h-2 w-2 shrink-0 rounded-full;
+  }
+
+  /* Category badge — small rounded chip, subtle tinted bg */
+  .cat-badge {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-medium uppercase tracking-widest;
+  }
+
+  /* Experience flashcard — clickable, expandable */
+  .flashcard {
+    @apply cursor-pointer rounded-lg border border-border bg-surface transition-all duration-300;
+  }
+  .flashcard:hover {
+    @apply -translate-y-0.5 border-accent shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.4)];
+  }
+  .flashcard.is-open {
+    @apply border-accent shadow-[0_8px_30px_rgba(37,99,235,0.12)] dark:shadow-[0_8px_30px_rgba(59,130,246,0.18)];
+  }
+
+  /* External link arrow */
+  .ext-link {
+    @apply inline-flex items-center gap-1.5 text-xs font-medium text-ink-muted transition hover:text-accent;
+  }
+  .ext-link::after {
+    content: "↗";
+    @apply font-mono-label text-[10px] opacity-60 transition group-hover:opacity-100;
+  }
+}
+
+/* Navy utilities — used for spotlight band & contact panel */
+.bg-navy        { background-color: var(--navy); }
+.bg-navy-soft   { background-color: var(--navy-soft); }
+.text-navy      { color: var(--navy); }
+.border-navy    { border-color: var(--navy); }
+
+/* Soft fade-in for the spotlight band */
+@keyframes spotlightIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.spotlight-in {
+  animation: spotlightIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Categorical text/background helpers — reference CSS vars */
+.text-cat-blue    { color: var(--cat-blue); }
+.text-cat-emerald { color: var(--cat-emerald); }
+.text-cat-amber   { color: var(--cat-amber); }
+.text-cat-violet  { color: var(--cat-violet); }
+.text-cat-rose    { color: var(--cat-rose); }
+.bg-cat-blue      { background-color: var(--cat-blue); }
+.bg-cat-emerald   { background-color: var(--cat-emerald); }
+.bg-cat-amber     { background-color: var(--cat-amber); }
+.bg-cat-violet    { background-color: var(--cat-violet); }
+.bg-cat-rose      { background-color: var(--cat-rose); }
+.border-cat-blue    { border-color: var(--cat-blue); }
+.border-cat-emerald { border-color: var(--cat-emerald); }
+.border-cat-amber   { border-color: var(--cat-amber); }
+.border-cat-violet  { border-color: var(--cat-violet); }
+.border-cat-rose    { border-color: var(--cat-rose); }
+.bg-cat-blue-soft    { background-color: rgba(37, 99, 235, 0.08); }
+.bg-cat-emerald-soft { background-color: rgba(5, 150, 105, 0.08); }
+.bg-cat-amber-soft   { background-color: rgba(217, 119, 6, 0.10); }
+.bg-cat-violet-soft  { background-color: rgba(124, 58, 237, 0.08); }
+.bg-cat-rose-soft    { background-color: rgba(225, 29, 72, 0.08); }
+.dark .bg-cat-blue-soft    { background-color: rgba(96, 165, 250, 0.12); }
+.dark .bg-cat-emerald-soft { background-color: rgba(52, 211, 153, 0.12); }
+.dark .bg-cat-amber-soft   { background-color: rgba(251, 191, 36, 0.14); }
+.dark .bg-cat-violet-soft  { background-color: rgba(167, 139, 250, 0.14); }
+.dark .bg-cat-rose-soft    { background-color: rgba(251, 113, 133, 0.12); }
+
+/* ─── Scroll progress ────────────────────────────────── */
+.scroll-progress {
+  background: var(--accent);
+}
+
+/* ─── Hero accent line draw ──────────────────────────── */
+@keyframes drawLine {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.hero-accent-line {
+  transform-origin: left;
+  animation: drawLine 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+/* ─── Subtle fade-in grid ────────────────────────────── */
+@keyframes gridFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.grid-reveal {
+  animation: gridFade 1.2s ease both;
+}
+
+/* ─── Bar chart grow ─────────────────────────────────── */
+@keyframes barGrow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.bar-animate {
+  transform-origin: left;
+  animation: barGrow 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ─── Counter tick ───────────────────────────────────── */
+@keyframes tickIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.metric-tick {
+  animation: tickIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

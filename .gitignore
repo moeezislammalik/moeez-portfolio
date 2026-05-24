@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Vercel
+.vercel
+
+# OS & editor
+.DS_Store
+*.log
+.idea/
+.vscode/
+
+# Debug
+npm-debug.log*
