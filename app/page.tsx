@@ -200,6 +200,8 @@ const projects: {
   tools: string;
   icon: string;
   chips: string[];
+  link?: string;
+  linkLabel?: string;
 }[] = [
   {
     title: "Telecom Customer Churn Analysis & Prediction",
@@ -238,13 +240,15 @@ const projects: {
     chips: ["2M+ rows", "AUC-ROC 0.90", "XGBoost + Random Forest"],
   },
   {
-    title: "AI Agents in Finance — Ask Moeez",
+    title: "AI-Powered Financial Assistant — Ask Moeez",
     description:
-      "LangChain + OpenAI prototype that answers structured finance questions and accelerates DCF- and churn-style analysis workflows.",
-    impact: "43% reduction in manual analysis time in prototype workflows.",
+      "J.P. Morgan–inspired AI agent using LangChain and the OpenAI API to automate financial analysis (DCF, churn insights) for faster, data-driven BI workflows.",
+    impact: "Reduced analysis time by 43% while enabling faster, data-driven decision making.",
     tools: "LangChain · OpenAI API · Python",
     icon: "/logos/python.svg",
-    chips: ["43% time saved", "Finance Q&A", "LangChain + OpenAI"],
+    chips: ["43% time saved", "DCF + churn", "LangChain + OpenAI"],
+    link: "https://github.com/moeezislammalik/ask-moeez-financial-assistant",
+    linkLabel: "View on GitHub",
   },
   {
     title: "Real Estate Price Prediction & Analysis",
@@ -1266,7 +1270,7 @@ export default function Home() {
                   Get in touch
                 </motion.a>
                 <motion.a
-                  href="/MoeezMalik_Resume_2026-5.pdf"
+                  href="/MoeezMalik_Resume_2026-2.pdf"
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ y: -2 }}
@@ -1510,6 +1514,16 @@ export default function Home() {
             <p className="max-w-3xl text-sm leading-relaxed text-ink-muted">{projects[0].description}</p>
             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-ink-muted">{projects[0].impact}</p>
             <p className="mt-4 font-mono-label text-[10px] text-ink-faint">{projects[0].tools}</p>
+            {projects[0].link && (
+              <a
+                href={projects[0].link}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center gap-1 font-mono-label text-[10px] uppercase tracking-widest text-accent transition hover:underline"
+              >
+                {projects[0].linkLabel ?? "Project link"} ↗
+              </a>
+            )}
           </motion.div>
 
           <div className="grid gap-4 md:grid-cols-2">
@@ -1529,6 +1543,16 @@ export default function Home() {
                 <p className="flex-1 text-xs leading-relaxed text-ink-muted">{p.description}</p>
                 <p className="mt-3 text-xs leading-relaxed text-ink-muted">{p.impact}</p>
                 <p className="mt-3 font-mono-label text-[10px] text-ink-faint">{p.tools}</p>
+                {p.link && (
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-3 inline-flex items-center gap-1 font-mono-label text-[10px] uppercase tracking-widest text-accent transition hover:underline"
+                  >
+                    {p.linkLabel ?? "Project link"} ↗
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
@@ -1731,7 +1755,7 @@ export default function Home() {
                   { href: "mailto:moeezislammalik@gmail.com", icon: "\u2709", label: "moeezislammalik@gmail.com" },
                   { href: "https://www.linkedin.com/in/moeez-malik/", icon: "in", label: "linkedin.com/in/moeez-malik", external: true },
                   { href: "https://github.com/moeezislammalik", icon: "gh", label: "github.com/moeezislammalik", external: true },
-                  { href: "/MoeezMalik_Resume_2026-5.pdf", icon: "\u2197", label: "Download resume (PDF)", external: true },
+                  { href: "/MoeezMalik_Resume_2026-2.pdf", icon: "\u2197", label: "Download resume (PDF)", external: true },
                 ].map((link) => (
                   <motion.a
                     key={link.label}
@@ -1768,7 +1792,7 @@ export default function Home() {
             {" · "}
             <a href="https://github.com/moeezislammalik" target="_blank" rel="noreferrer" className="transition hover:text-accent">GitHub</a>
             {" · "}
-            <a href="/MoeezMalik_Resume_2026-5.pdf" target="_blank" rel="noreferrer" className="transition hover:text-accent">Resume</a>
+            <a href="/MoeezMalik_Resume_2026-2.pdf" target="_blank" rel="noreferrer" className="transition hover:text-accent">Resume</a>
           </p>
         </div>
       </footer>
