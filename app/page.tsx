@@ -294,29 +294,19 @@ const certifications = [
   { title: "Tableau Desktop Specialist", issuer: "Tableau", logo: "/logos/tableau.svg" },
 ];
 
-/* ─── Skills ─────────────────────────────────────────── */
-const skillGroups: { title: string; icon: string; tags: string[] }[] = [
-  {
-    title: "Data Analysis",
-    icon: "/logos/sql.svg",
-    tags: ["SQL", "Python", "pandas", "NumPy", "Data cleaning", "Exploratory analysis"],
-  },
-  {
-    title: "Business Intelligence",
-    icon: "/logos/powerbi.svg",
-    tags: ["Power BI", "Tableau", "DAX", "KPI reporting", "Dashboards"],
-  },
-  {
-    title: "Analytics & Modeling",
-    icon: "/logos/python.svg",
-    tags: ["Predictive modeling", "Churn analysis", "ML pipelines", "ETL design", "Statistics"],
-  },
-  {
-    title: "Tools & Cloud",
-    icon: "/logos/databricks.svg",
-    tags: ["Databricks", "PySpark", "Azure", "AWS", "Excel", "Git / GitHub"],
-  },
-];
+/* ─── Publication ────────────────────────────────────── */
+const publication = {
+  title:
+    "Predicting Telecom Customer Churn: A Statistically Validated KPI Framework with Machine Learning and Revenue Impact Modeling",
+  authors: "Moeez Islam Malik '27 · Amy Ehinomen Eremionkhale",
+  venue: "DePauw University Student Research",
+  date: "April 2026",
+  type: "Capstone thesis",
+  abstract:
+    "A KPI-led churn framework on 7,043 telecom customer records — Pearson correlation, chi-square tests, and logistic regression (AUC-ROC 0.83). Tenure and contract type emerge as dominant drivers; a 5-point churn cut preserves ~$274K annual revenue and $1.55M in CLV.",
+  chips: ["AUC-ROC 0.83", "7,043 customers", "Power BI dashboard", "Revenue impact"],
+  link: "https://scholarship.depauw.edu/studentresearchother/634/",
+};
 
 /* ─── Combined Leadership & Campus Experiences ───────── */
 type LeadershipEntry = {
@@ -436,7 +426,7 @@ const nav = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "projects", label: "Projects" },
-  { id: "skills", label: "Skills" },
+  { id: "publication", label: "Publication" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -876,34 +866,22 @@ function AskMoeez() {
    Contact Form
 ══════════════════════════════════════════════════════ */
 const MSG_LIMIT = 800;
-const CONTACT_SUBJECTS = ["Job opportunity", "Collaboration", "Data consulting", "Just saying hi 👋"] as const;
-type ContactSubject = typeof CONTACT_SUBJECTS[number];
-
-const SUBJECT_ICONS: Record<ContactSubject, string> = {
-  "Job opportunity": "💼",
-  "Collaboration": "🤝",
-  "Data consulting": "📊",
-  "Just saying hi 👋": "✌️",
-};
+const CONTACT_SUBJECTS = ["Opportunity", "Collaboration", "Consulting", "Other"] as const;
+type ContactSubject = (typeof CONTACT_SUBJECTS)[number];
 
 function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
-  const [subject, setSubject] = useState<ContactSubject | "">("");
+  const [subject, setSubject] = useState<ContactSubject>("Opportunity");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  // Builds a mailto: link with the current form contents so the user can
-  // hand-deliver the message via their own email app if our server can't
-  // reach the mail relay. This is the always-available fallback.
   const mailtoFallback = () => {
-    const subj = subject
-      ? `[${subject}] Portfolio message from ${form.name || "Visitor"}${form.company ? ` at ${form.company}` : ""}`
-      : `Portfolio message from ${form.name || "Visitor"}${form.company ? ` at ${form.company}` : ""}`;
+    const subj = `[${subject}] Portfolio note from ${form.name || "Visitor"}${form.company ? ` · ${form.company}` : ""}`;
     const lines = [
-      `From: ${form.name || "(name)"}`,
-      `Email: ${form.email || "(your email)"}`,
+      `Name: ${form.name || "—"}`,
+      `Email: ${form.email || "—"}`,
       form.company ? `Company: ${form.company}` : "",
       "",
-      form.message || "(your message)",
+      form.message || "",
     ].filter(Boolean);
     const params = new URLSearchParams({ subject: subj, body: lines.join("\n") });
     return `mailto:moeezislammalik@gmail.com?${params.toString()}`;
@@ -921,7 +899,7 @@ function ContactForm() {
       if (res.ok) {
         setStatus("success");
         setForm({ name: "", email: "", company: "", message: "" });
-        setSubject("");
+        setSubject("Opportunity");
       } else {
         setStatus("error");
       }
@@ -933,183 +911,143 @@ function ContactForm() {
   if (status === "success") {
     return (
       <motion.div
-        initial={{ opacity: 0, scale: 0.88, y: 16 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 280, damping: 22 }}
-        className="flex flex-col items-center justify-center py-16 text-center"
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col justify-center py-10"
       >
-        <motion.div
-          initial={{ scale: 0, rotate: -20 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ type: "spring", stiffness: 380, damping: 16, delay: 0.1 }}
-          className="mb-5 flex h-20 w-20 items-center justify-center rounded-full border border-border bg-surface-subtle text-4xl"
-        >
-          🎉
-        </motion.div>
-        <h3 className="font-display text-2xl text-ink">Message sent!</h3>
-        <p className="mt-2 text-sm text-ink-muted">Moeez will be in touch within 24 hours.</p>
-        <div className="mt-1 flex items-center gap-1.5 text-xs text-ink-muted">
-          <span className="text-accent">✓</span>
-          <span>Delivered to moeezislammalik@gmail.com</span>
-        </div>
-        <motion.button
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.96 }}
+        <p className="font-mono-label text-[10px] uppercase tracking-widest text-accent">Sent</p>
+        <h3 className="mt-2 font-display text-2xl text-ink">Thanks — I&apos;ll get back soon.</h3>
+        <p className="mt-2 max-w-sm text-sm text-ink-muted">
+          Your note was delivered. Prefer email?{" "}
+          <a href="mailto:moeezislammalik@gmail.com" className="text-accent transition hover:underline">
+            moeezislammalik@gmail.com
+          </a>
+        </p>
+        <button
+          type="button"
           onClick={() => setStatus("idle")}
-          className="mt-6 rounded-md border border-border bg-surface-subtle px-5 py-2.5 text-xs font-medium text-ink-muted transition hover:border-accent hover:text-accent"
+          className="btn-secondary mt-6 self-start text-xs"
         >
-          Send another message →
-        </motion.button>
+          Write another
+        </button>
       </motion.div>
     );
   }
 
-  const submitLabel =
-    subject === "Job opportunity" ? "Send to Moeez 💼" :
-    subject === "Collaboration" ? "Let's collab 🤝" :
-    subject === "Data consulting" ? "Request consult 📊" :
-    "Send message →";
+  const field =
+    "w-full rounded-md border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink-faint focus:border-accent";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      {/* Subject chips */}
+    <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="mb-2 block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
-          What&apos;s this about?
+        <label htmlFor="contact-subject" className="mb-1.5 block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
+          Subject
         </label>
-        <div className="flex flex-wrap gap-2">
+        <select
+          id="contact-subject"
+          value={subject}
+          onChange={(e) => setSubject(e.target.value as ContactSubject)}
+          className={field}
+        >
           {CONTACT_SUBJECTS.map((s) => (
-            <button
-              key={s}
-              type="button"
-              onClick={() => setSubject(s === subject ? "" : s)}
-              className={`flex items-center gap-1.5 rounded-md border px-3 py-1.5 text-xs font-medium transition-all ${
-                subject === s
-                  ? "border-accent bg-accent text-white"
-                  : "border-border bg-surface text-ink-muted hover:border-accent hover:text-accent"
-              }`}
-            >
-              <span>{SUBJECT_ICONS[s]}</span>
-              <span>{s}</span>
-            </button>
+            <option key={s} value={s}>
+              {s}
+            </option>
           ))}
-        </div>
+        </select>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
-        <div className="group">
-          <label className="mb-1 block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
-            Name *
+        <div>
+          <label htmlFor="contact-name" className="mb-1.5 block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
+            Name
           </label>
           <input
+            id="contact-name"
             required
             value={form.name}
             onChange={(e) => setForm({ ...form, name: e.target.value })}
-            placeholder="Your name"
-            className="w-full rounded-md border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink-faint focus:border-accent"
+            placeholder="Full name"
+            className={field}
           />
         </div>
         <div>
-          <label className="mb-1 block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
-            Email *
+          <label htmlFor="contact-email" className="mb-1.5 block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
+            Email
           </label>
           <input
+            id="contact-email"
             required
             type="email"
             value={form.email}
             onChange={(e) => setForm({ ...form, email: e.target.value })}
             placeholder="you@company.com"
-            className="w-full rounded-md border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink-faint focus:border-accent"
+            className={field}
           />
         </div>
       </div>
+
       <div>
-        <label className="mb-1 block text-[11px] font-semibold uppercase tracking-wide text-[#4B5563] dark:text-slate-400">
-          Company / Organization
+        <label htmlFor="contact-company" className="mb-1.5 block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
+          Company <span className="normal-case tracking-normal text-ink-faint">(optional)</span>
         </label>
         <input
+          id="contact-company"
           value={form.company}
           onChange={(e) => setForm({ ...form, company: e.target.value })}
-          placeholder="Optional"
-          className="w-full rounded-md border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink-faint focus:border-accent"
+          placeholder="Organization"
+          className={field}
         />
       </div>
+
       <div>
-        <div className="mb-1 flex items-center justify-between">
-        <label className="block font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
-            Message *
+        <div className="mb-1.5 flex items-center justify-between gap-3">
+          <label htmlFor="contact-message" className="font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
+            Message
           </label>
-          <span className={`text-[10px] font-medium ${form.message.length > MSG_LIMIT * 0.9 ? "text-red-500" : "text-[#9CA3AF] dark:text-slate-500"}`}>
+          <span className="font-mono-label text-[10px] text-ink-faint">
             {form.message.length}/{MSG_LIMIT}
           </span>
         </div>
         <textarea
+          id="contact-message"
           required
-          rows={4}
+          rows={5}
           maxLength={MSG_LIMIT}
           value={form.message}
           onChange={(e) => setForm({ ...form, message: e.target.value })}
-          placeholder="Tell Moeez what's on your mind…"
-          className="w-full resize-none rounded-md border border-border bg-surface px-3 py-2.5 text-sm text-ink outline-none transition placeholder:text-ink-faint focus:border-accent"
+          placeholder="Role, timeline, or what you’d like to discuss…"
+          className={`${field} resize-none`}
         />
       </div>
+
       {status === "error" && (
-        <motion.div
-          initial={{ opacity: 0, y: -6 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="rounded-md border border-amber-300/70 bg-amber-50 p-4 dark:border-amber-400/30 dark:bg-amber-900/20"
-        >
-          <div className="flex items-start gap-3">
-            <span className="mt-0.5 text-lg" aria-hidden>⚠️</span>
-            <div className="flex-1 space-y-2">
-              <p className="text-sm font-medium text-amber-900 dark:text-amber-200">
-                Our mail relay is temporarily unreachable.
-              </p>
-              <p className="text-xs leading-relaxed text-amber-800/90 dark:text-amber-200/80">
-                Your message hasn&apos;t been lost — you can deliver it instantly through your own email app, or try sending again.
-              </p>
-              <div className="flex flex-wrap gap-2 pt-1">
-                <a
-                  href={mailtoFallback()}
-                  className="inline-flex items-center gap-1.5 rounded-md bg-ink px-3 py-1.5 text-xs font-medium text-surface transition hover:bg-accent dark:bg-surface dark:text-ink dark:hover:bg-accent dark:hover:text-white"
-                >
-                  ✉ Open in email app
-                </a>
-                <button
-                  type="button"
-                  onClick={() => setStatus("idle")}
-                  className="inline-flex items-center gap-1.5 rounded-md border border-amber-400/60 px-3 py-1.5 text-xs font-medium text-amber-900 transition hover:bg-amber-100 dark:text-amber-200 dark:hover:bg-amber-900/40"
-                >
-                  ↻ Try again
-                </button>
-                <a
-                  href="mailto:moeezislammalik@gmail.com"
-                  className="inline-flex items-center gap-1.5 text-xs font-medium text-amber-900/80 underline-offset-2 hover:underline dark:text-amber-200/80"
-                >
-                  moeezislammalik@gmail.com
-                </a>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <div className="rounded-md border border-border bg-surface-subtle p-4">
+          <p className="text-sm text-ink">Couldn’t send just now.</p>
+          <p className="mt-1 text-xs leading-relaxed text-ink-muted">
+            Try again, or email directly —{" "}
+            <a href={mailtoFallback()} className="text-accent transition hover:underline">
+              open your mail app
+            </a>
+            .
+          </p>
+          <button
+            type="button"
+            onClick={() => setStatus("idle")}
+            className="mt-3 font-mono-label text-[10px] uppercase tracking-widest text-ink-muted transition hover:text-accent"
+          >
+            Dismiss
+          </button>
+        </div>
       )}
-      <motion.button
-        whileHover={{ scale: 1.015, y: -1 }}
-        whileTap={{ scale: 0.98 }}
+
+      <button
         type="submit"
         disabled={status === "loading"}
-        className="w-full justify-center rounded-md bg-ink py-3 text-sm font-medium text-surface transition hover:bg-accent disabled:opacity-60 dark:bg-surface dark:text-ink dark:hover:bg-accent dark:hover:text-white"
+        className="btn-primary w-full disabled:opacity-60"
       >
-        {status === "loading" ? (
-          <span className="flex items-center justify-center gap-2">
-            <svg className="h-4 w-4 animate-spin" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8h4z"/>
-            </svg>
-            Sending…
-          </span>
-        ) : submitLabel}
-      </motion.button>
+        {status === "loading" ? "Sending…" : "Send message"}
+      </button>
     </form>
   );
 }
@@ -1704,8 +1642,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Skills ───────────────────────────────────────── */}
-      <SectionFrame id="skills" bg="section">
+      {/* ── Publication ──────────────────────────────────── */}
+      <SectionFrame id="publication" bg="section">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -1713,28 +1651,47 @@ export default function Home() {
           variants={stagger}
         >
           <motion.div variants={fadeUp} className="mb-10">
-            <p className="section-label">Skills</p>
-            <h2 className="section-title">Core competencies</h2>
-            <p className="mt-2 text-sm text-ink-muted">Structured for analytics, BI, and cross-functional impact.</p>
+            <p className="section-label">Research</p>
+            <h2 className="section-title">Publication</h2>
+            <p className="mt-2 max-w-2xl text-sm text-ink-muted">
+              Peer-deposited capstone research in DePauw&apos;s scholarly commons.
+            </p>
           </motion.div>
 
-          <div className="grid gap-4 md:grid-cols-2">
-            {skillGroups.map((g) => (
-              <motion.div key={g.title} variants={fadeUp} whileHover={{ y: -2 }} className="analyst-card p-5">
-                <div className="mb-4 flex items-center gap-3 border-b border-border pb-4">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-md border border-border bg-white p-1.5 dark:border-transparent">
-                    <Image src={g.icon} alt="" width={24} height={24} className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-sm font-medium text-ink">{g.title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-x-3 gap-y-1">
-                  {g.tags.map((tag) => (
-                    <span key={tag} className="text-xs text-ink-muted">{tag}</span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <motion.article variants={fadeUp} className="analyst-card p-6 md:p-8">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono-label text-[10px] uppercase tracking-widest text-ink-faint">
+              <span className="text-accent">{publication.type}</span>
+              <span aria-hidden>·</span>
+              <span>{publication.venue}</span>
+              <span aria-hidden>·</span>
+              <span>{publication.date}</span>
+            </div>
+            <h3 className="mt-3 max-w-4xl font-display text-xl leading-snug text-ink md:text-2xl">
+              {publication.title}
+            </h3>
+            <p className="mt-2 text-sm text-ink-muted">{publication.authors}</p>
+            <p className="mt-4 max-w-3xl text-sm leading-relaxed text-ink-muted">
+              {publication.abstract}
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              {publication.chips.map((chip) => (
+                <span
+                  key={chip}
+                  className="rounded-md border border-border bg-surface-subtle px-2.5 py-1 font-mono-label text-[10px] uppercase tracking-widest text-ink-muted"
+                >
+                  {chip}
+                </span>
+              ))}
+            </div>
+            <a
+              href={publication.link}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-6 inline-flex items-center gap-1 font-mono-label text-[10px] uppercase tracking-widest text-accent transition hover:underline"
+            >
+              Read on DePauw Scholarship ↗
+            </a>
+          </motion.article>
         </motion.div>
       </SectionFrame>
 
@@ -1746,48 +1703,42 @@ export default function Home() {
             whileInView="show"
             viewport={{ once: true, amount: 0.15 }}
             variants={stagger}
-            className="analyst-card overflow-hidden md:grid md:grid-cols-[1fr_1.2fr]"
+            className="analyst-card overflow-hidden md:grid md:grid-cols-[1fr_1.15fr]"
           >
             <motion.div variants={fadeUp} className="flex flex-col justify-between border-b border-border bg-navy p-8 text-white md:border-b-0 md:border-r md:p-10">
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-white/80" />
-                  <span className="font-mono-label text-[10px] uppercase tracking-widest text-white/70">Open to opportunities</span>
-                </div>
-                <div>
-                  <p className="font-mono-label text-[10px] uppercase tracking-[0.2em] text-white/55">Contact</p>
-                  <h2 className="mt-2 font-display text-3xl leading-tight md:text-4xl">Let&apos;s talk data & strategy.</h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/75">
-                    Open to conversations on BI, telecom analytics, and data strategy.
-                  </p>
-                </div>
+              <div>
+                <p className="font-mono-label text-[10px] uppercase tracking-[0.2em] text-white/55">Contact</p>
+                <h2 className="mt-2 font-display text-3xl leading-tight md:text-4xl">
+                  Let&apos;s talk data &amp; strategy.
+                </h2>
+                <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
+                  BI, telecom analytics, and data strategy — open to roles and serious collaborations.
+                </p>
               </div>
-              <div className="mt-8 space-y-2">
+              <div className="mt-10 space-y-3 border-t border-white/10 pt-6">
                 {[
-                  { href: "mailto:moeezislammalik@gmail.com", icon: "\u2709", label: "moeezislammalik@gmail.com" },
-                  { href: "https://www.linkedin.com/in/moeez-malik/", icon: "in", label: "linkedin.com/in/moeez-malik", external: true },
-                  { href: "https://github.com/moeezislammalik", icon: "gh", label: "github.com/moeezislammalik", external: true },
-                  { href: "/MoeezMalik_Resume_2026-2.pdf", icon: "\u2197", label: "Download resume (PDF)", external: true },
+                  { href: "mailto:moeezislammalik@gmail.com", label: "moeezislammalik@gmail.com" },
+                  { href: "https://www.linkedin.com/in/moeez-malik/", label: "linkedin.com/in/moeez-malik", external: true },
+                  { href: "https://github.com/moeezislammalik", label: "github.com/moeezislammalik", external: true },
+                  { href: "/MoeezMalik_Resume_2026-2.pdf", label: "Resume (PDF)", external: true },
                 ].map((link) => (
-                  <motion.a
+                  <a
                     key={link.label}
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noreferrer" : undefined}
-                    whileHover={{ x: 4 }}
-                    className="flex items-center gap-3 border border-white/15 bg-white/[0.02] px-3 py-2.5 text-xs text-white/85 transition hover:border-white hover:bg-white/[0.06]"
+                    className="block text-sm text-white/80 transition hover:text-white"
                   >
-                    <span className="font-mono-label text-[10px]">{link.icon}</span>
-                    <span className="truncate">{link.label}</span>
-                  </motion.a>
+                    {link.label}
+                  </a>
                 ))}
               </div>
             </motion.div>
 
             <motion.div variants={fadeUp} className="bg-surface p-8 md:p-10">
-              <div className="mb-6">
-                <h3 className="font-display text-xl text-ink">Send a message</h3>
-                <p className="mt-1 text-xs text-ink-muted">Goes straight to my inbox.</p>
+              <div className="mb-6 border-b border-border pb-5">
+                <h3 className="font-display text-xl text-ink">Send a note</h3>
+                <p className="mt-1 text-sm text-ink-muted">Direct to my inbox — usually a quick reply.</p>
               </div>
               <ContactForm />
             </motion.div>

@@ -166,6 +166,11 @@ PROJECTS (highlighted — all on GitHub under moeezislammalik)
    - https://github.com/moeezislammalik/housing-price-prediction
    - Stack: Python, pandas, scikit-learn
 
+PUBLICATION
+- Capstone thesis (with Prof. Amy Ehinomen Eremionkhale): "Predicting Telecom Customer Churn: A Statistically Validated KPI Framework with Machine Learning and Revenue Impact Modeling" (April 2026)
+- DePauw Student Research / Scholarly Commons: https://scholarship.depauw.edu/studentresearchother/634/
+- 7,043 telecom customers, logistic regression AUC-ROC 0.8307; tenure & contract type as dominant drivers; 5-pp churn cut → ~$274K annual revenue / $1.55M CLV preserved
+
 ════════════════════════════════════════
 LEADERSHIP (9+ roles)
 ════════════════════════════════════════
