@@ -118,7 +118,7 @@ const experiences: {
     role: "Business Analytics Intern, Business Intelligence",
     company: "Cable One (Sparklight)",
     location: "Phoenix, AZ",
-    period: "May 2025 – Aug 2025",
+    period: "May 2025 - Aug 2025",
     logo: "/logos/cableone.png",
     logoBg: "bg-white",
     logoBgDark: "dark:bg-white",
@@ -128,7 +128,7 @@ const experiences: {
       "Optimized 11+ Databricks ETL pipelines reducing latency by 30% and improving BI dashboard performance.",
       "Built 3 Power BI dashboards with star-schema modeling to analyze broadband adoption across 24 states.",
       "Developed churn prediction models in Python + SQL identifying key customer risk drivers for retention.",
-      "Presented Q2 BI deep-dive to executive leadership — directly informing a $420M acquisition discussion.",
+      "Presented Q2 BI deep-dive to executive leadership, directly informing a $420M acquisition discussion.",
     ],
     link: "https://www.cableone.net/",
     category: "blue",
@@ -138,7 +138,7 @@ const experiences: {
     role: "Data Analytics Intern - Product",
     company: "Mastercard",
     location: "Remote",
-    period: "June 2024 – Aug 2024",
+    period: "June 2024 - Aug 2024",
     logo: "/logos/mastercard.png",
     logoBg: "bg-white",
     logoBgDark: "dark:bg-white",
@@ -157,7 +157,7 @@ const experiences: {
     role: "Research & Data Analytics Intern",
     company: "Prindle Institute of Ethics",
     location: "Greencastle, IN",
-    period: "Dec 2024 – Jan 2025",
+    period: "Dec 2024 - Jan 2025",
     logo: "/logos/prindle.png",
     logoBg: "bg-white",
     logoBgDark: "dark:bg-white",
@@ -176,7 +176,7 @@ const experiences: {
     role: "Software Development STEM Guide",
     company: "DePauw University",
     location: "Greencastle, IN",
-    period: "Sept 2024 – Present",
+    period: "Sept 2024 - Present",
     logo: "/depauw/tigers.png",
     logoBg: "bg-[#F0F4FF]",
     logoBgDark: "dark:bg-white",
@@ -192,7 +192,7 @@ const experiences: {
   },
 ];
 
-/* ─── Projects (no charts — clean metric chips) ─────── */
+/* ─── Projects (no charts, clean metric chips) ─────── */
 const projects: {
   title: string;
   description: string;
@@ -206,7 +206,7 @@ const projects: {
   {
     title: "Automated Business Decision Engine",
     description:
-      "Senior capstone — Flask web app that ingests CSV business data, applies weighted risk rules, scores each record, and returns explainable High / Medium / Low classifications with SQLite history and a REST API.",
+      "Senior capstone Flask web app that ingests CSV business data, applies weighted risk rules, scores each record, and returns explainable High / Medium / Low classifications with SQLite history and a REST API.",
     impact: "Replaces routine manual analyst review with a transparent, testable decision pipeline (60 automated tests + CI).",
     tools: "Python · Flask · SQLite · pytest · GitHub Actions",
     icon: "/logos/python.svg",
@@ -217,7 +217,7 @@ const projects: {
   {
     title: "Instagram Product Analytics & AI Insights",
     description:
-      "Full-stack product analytics platform inspired by Meta’s Instagram team — executive KPIs, funnels, A/B testing, churn/Prophet forecasting, SHAP explainability, and a LangChain AI analyst over synthetic event data.",
+      "Full-stack product analytics platform inspired by Meta’s Instagram team, with executive KPIs, funnels, A/B testing, churn/Prophet forecasting, SHAP explainability, and a LangChain AI analyst over synthetic event data.",
     impact: "One portfolio system covering BI, experimentation, ML, and natural-language analytics end to end.",
     tools: "Python · Streamlit · SQL · scikit-learn · Prophet · LangChain",
     icon: "/logos/python.svg",
@@ -228,7 +228,7 @@ const projects: {
   {
     title: "ETF Portfolio Monitoring & Trade Reconciliation",
     description:
-      "Operations platform for daily ETF portfolio monitoring — NAV and returns, trade/settlement/cash reconciliation, exception detection, and reporting via Streamlit dashboards and exports.",
+      "Operations platform for daily ETF portfolio monitoring, covering NAV and returns, trade/settlement/cash reconciliation, exception detection, and reporting via Streamlit dashboards and exports.",
     impact: "Automates the ingest → reconcile → exception → report loop used by asset-management ops teams.",
     tools: "Python · Streamlit · SQL · Power BI",
     icon: "/logos/python.svg",
@@ -240,7 +240,7 @@ const projects: {
     title: "Customer Churn & Revenue Optimization",
     description:
       "Analyzed 2M+ transaction records with Python and SQL (DuckDB) to identify churn drivers and revenue leakage, with Streamlit KPI dashboards and a gradient-boosting churn model.",
-    impact: "AUC-ROC 0.90 with ~20% fewer false positives — sharper retention targeting and leakage visibility.",
+    impact: "AUC-ROC 0.90 with ~20% fewer false positives, for sharper retention targeting and leakage visibility.",
     tools: "Python · SQL · DuckDB · scikit-learn · Streamlit",
     icon: "/logos/python.svg",
     chips: ["2M+ transactions", "AUC-ROC 0.90", "Revenue leakage"],
@@ -250,7 +250,7 @@ const projects: {
   {
     title: "Broadband Adoption BI Dashboard",
     description:
-      "Power BI star-schema executive suite for broadband adoption across 24 states — adoption rate, penetration, gap analysis, and trend monitoring (de-identified for portfolio).",
+      "Power BI star-schema executive suite for broadband adoption across 24 states, with adoption rate, penetration, gap analysis, and trend monitoring (de-identified for portfolio).",
     impact: "Single scalable BI source improving cross-market visibility for leadership.",
     tools: "Power BI · SQL · DAX · star schema",
     icon: "/logos/powerbi.svg",
@@ -259,9 +259,9 @@ const projects: {
     linkLabel: "View on GitHub",
   },
   {
-    title: "AI-Powered Financial Assistant — Ask Moeez",
+    title: "AI-Powered Financial Assistant: Ask Moeez",
     description:
-      "J.P. Morgan–inspired AI agent using LangChain and the OpenAI API to automate financial analysis (DCF, churn insights, retention economics) for faster BI workflows.",
+      "J.P. Morgan-inspired AI agent using LangChain and the OpenAI API to automate financial analysis (DCF, churn insights, retention economics) for faster BI workflows.",
     impact: "Reduced analysis time by 43% while enabling faster, data-driven decision making.",
     tools: "LangChain · OpenAI API · Python",
     icon: "/logos/python.svg",
@@ -272,8 +272,8 @@ const projects: {
   {
     title: "Housing Price Prediction & Analysis",
     description:
-      "Regression pipeline on the California Housing dataset — EDA, feature engineering, and Random Forest vs Gradient Boosting with ranked price-driver importances.",
-    impact: "Best model R² 0.81 with ~$33K MAE — clear story from raw housing features to interpretable drivers (income, occupancy, location).",
+      "Regression pipeline on the California Housing dataset with EDA, feature engineering, and Random Forest vs Gradient Boosting with ranked price-driver importances.",
+    impact: "Best model R² 0.81 with ~$33K MAE, telling a clear story from raw housing features to interpretable drivers (income, occupancy, location).",
     tools: "Python · pandas · scikit-learn",
     icon: "/logos/python.svg",
     chips: ["R² 0.81", "20K+ homes", "Feature importance"],
@@ -303,7 +303,7 @@ const publication = {
   date: "April 2026",
   type: "Capstone thesis",
   abstract:
-    "A KPI-led churn framework on 7,043 telecom customer records — Pearson correlation, chi-square tests, and logistic regression (AUC-ROC 0.83). Tenure and contract type emerge as dominant drivers; a 5-point churn cut preserves ~$274K annual revenue and $1.55M in CLV.",
+    "A KPI-led churn framework on 7,043 telecom customer records. Pearson correlation, chi-square tests, and logistic regression (AUC-ROC 0.83). Tenure and contract type emerge as dominant drivers; a 5-point churn cut preserves ~$274K annual revenue and $1.55M in CLV.",
   chips: ["AUC-ROC 0.83", "7,043 customers", "Power BI dashboard", "Revenue impact"],
   link: "https://scholarship.depauw.edu/studentresearchother/634/",
 };
@@ -324,7 +324,7 @@ const leadershipAll: LeadershipEntry[] = [
   {
     title: "AI in Business Club",
     role: "Founder & President",
-    desc: "Launched and leads a student organization applying AI to business, analytics, and product strategy — building workshops and industry connections.",
+    desc: "Launched and leads a student organization applying AI to business, analytics, and product strategy. Building workshops and industry connections.",
     abbr: "AI",
     category: "blue",
     categoryLabel: "Founder",
@@ -334,7 +334,7 @@ const leadershipAll: LeadershipEntry[] = [
   {
     title: "International Student Affairs",
     role: "Lead Ambassador",
-    desc: "Represents the international community on key campus initiatives, orientation, and policy discussions — serving 200+ international students annually.",
+    desc: "Represents the international community on key campus initiatives, orientation, and policy discussions. Serving 200+ international students annually.",
     abbr: "ISA",
     category: "rose",
     categoryLabel: "International",
@@ -354,7 +354,7 @@ const leadershipAll: LeadershipEntry[] = [
   {
     title: "Muslim Students Association",
     role: "President",
-    desc: "Leads the MSA community at DePauw — coordinating cultural programming, weekly gatherings, and inter-faith dialogue across campus.",
+    desc: "Leads the MSA community at DePauw. Coordinating cultural programming, weekly gatherings, and inter-faith dialogue across campus.",
     abbr: "MSA",
     category: "emerald",
     categoryLabel: "President",
@@ -362,7 +362,7 @@ const leadershipAll: LeadershipEntry[] = [
   {
     title: "Pakistani Student Association",
     role: "Founder",
-    desc: "First-ever Pakistani student organization at DePauw — cultural events, mentorship for incoming international students, and South-Asian community building.",
+    desc: "First-ever Pakistani student organization at DePauw. Cultural events, mentorship for incoming international students, and South-Asian community building.",
     abbr: "PSA",
     category: "rose",
     categoryLabel: "Founder",
@@ -388,7 +388,7 @@ const leadershipAll: LeadershipEntry[] = [
   {
     title: "Speaking & Listening Center Tutor",
     role: "DePauw S Center",
-    desc: "Coached peers on communication, presentation delivery, and interview prep across disciplines — at DePauw's Learning Commons.",
+    desc: "Coached peers on communication, presentation delivery, and interview prep across disciplines. At DePauw's Learning Commons.",
     abbr: "SC",
     category: "violet",
     categoryLabel: "Tutoring",
@@ -431,7 +431,7 @@ const nav = [
 ];
 
 /* ══════════════════════════════════════════════════════
-   Experience flashcard — click to expand
+   Experience flashcard. click to expand
 ══════════════════════════════════════════════════════ */
 function ExperienceFlashCard({
   ex,
@@ -464,7 +464,7 @@ function ExperienceFlashCard({
         aria-label={`${isOpen ? "Collapse" : "Expand"} details for ${ex.role} at ${ex.company}`}
         className={`flashcard group ml-6 overflow-hidden ${isOpen ? "is-open" : ""}`}
       >
-        {/* Front face — always visible */}
+        {/* Front face. always visible */}
         <div className="flex items-center gap-4 p-4 md:p-5">
           <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-md border border-border ${ex.logoBg} ${ex.logoBgDark} p-1.5`}>
             <div className="relative h-full w-full">
@@ -492,7 +492,7 @@ function ExperienceFlashCard({
           </div>
         </div>
 
-        {/* Back face — expanded details */}
+        {/* Back face. expanded details */}
         <AnimatePresence initial={false}>
           {isOpen && (
             <motion.div
@@ -546,7 +546,7 @@ function ExperienceFlashCard({
 }
 
 /* ══════════════════════════════════════════════════════
-   Ask Moeez — floating AI chatbot
+   Ask Moeez. floating AI chatbot
 ══════════════════════════════════════════════════════ */
 const QUICK_PROMPTS: string[] = [
   "Why is Moeez a strong fit for a Business Analyst role?",
@@ -573,7 +573,7 @@ function AskMoeez() {
     {
       role: "assistant",
       content:
-        "Hi! I'm Moeez's AI agent — I know his work at Cable One, Mastercard, and Prindle, his projects, his stack, and his career goals. Ask me anything, including:\n\n• How he'd fit a specific role\n• Deep-dives into any project\n• Technical questions (Power BI, churn modeling, ETL, etc.)\n• How to reach him\n\nOr tap a quick prompt below to get started.",
+        "Hi! I'm Moeez's AI agent. I know his work at Cable One, Mastercard, and Prindle, his projects, his stack, and his career goals. Ask me anything, including:\n\n• How he'd fit a specific role\n• Deep-dives into any project\n• Technical questions (Power BI, churn modeling, ETL, etc.)\n• How to reach him\n\nOr tap a quick prompt below to get started.",
     },
   ]);
   const [input, setInput] = useState("");
@@ -613,7 +613,7 @@ function AskMoeez() {
     } catch {
       setMessages((prev) => [
         ...prev,
-        { role: "assistant", content: "Having trouble connecting — reach Moeez at moeezislammalik@gmail.com!" },
+        { role: "assistant", content: "Having trouble connecting. Reach Moeez at moeezislammalik@gmail.com!" },
       ]);
     } finally {
       setLoading(false);
@@ -630,7 +630,7 @@ function AskMoeez() {
 
   return (
     <>
-      {/* Floating trigger — card style with avatar, status, typing indicator */}
+      {/* Floating trigger. card style with avatar, status, typing indicator */}
       <AnimatePresence>
         {shown && !open && (
           <motion.button
@@ -833,7 +833,7 @@ function AskMoeez() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === "Enter" && send()}
-                  placeholder="Ask anything — projects, fit, skills, Cable One…"
+                  placeholder="Ask anything about projects, fit, skills, Cable One…"
                   className="min-w-0 flex-1 rounded-md border border-border bg-surface-subtle px-3 py-2 text-xs text-ink outline-none transition placeholder:text-ink-faint focus:border-accent"
                   disabled={loading}
                 />
@@ -877,8 +877,8 @@ function ContactForm() {
   const mailtoFallback = () => {
     const subj = `[${subject}] Portfolio note from ${form.name || "Visitor"}${form.company ? ` · ${form.company}` : ""}`;
     const lines = [
-      `Name: ${form.name || "—"}`,
-      `Email: ${form.email || "—"}`,
+      `Name: ${form.name || " - "}`,
+      `Email: ${form.email || " - "}`,
       form.company ? `Company: ${form.company}` : "",
       "",
       form.message || "",
@@ -916,7 +916,7 @@ function ContactForm() {
         className="flex flex-col justify-center py-10"
       >
         <p className="font-mono-label text-[10px] uppercase tracking-widest text-accent">Sent</p>
-        <h3 className="mt-2 font-display text-2xl text-ink">Thanks — I&apos;ll get back soon.</h3>
+        <h3 className="mt-2 font-display text-2xl text-ink">Thanks. I&apos;ll get back soon.</h3>
         <p className="mt-2 max-w-sm text-sm text-ink-muted">
           Your note was delivered. Prefer email?{" "}
           <a href="mailto:moeezislammalik@gmail.com" className="text-accent transition hover:underline">
@@ -1025,7 +1025,7 @@ function ContactForm() {
         <div className="rounded-md border border-border bg-surface-subtle p-4">
           <p className="text-sm text-ink">Couldn’t send just now.</p>
           <p className="mt-1 text-xs leading-relaxed text-ink-muted">
-            Try again, or email directly —{" "}
+            Try again, or email directly:{" "}
             <a href={mailtoFallback()} className="text-accent transition hover:underline">
               open your mail app
             </a>
@@ -1127,7 +1127,7 @@ export default function Home() {
         <div className="section-wrap flex items-center justify-between py-3.5">
           <a
             href="#top"
-            aria-label="MIM — Moeez Islam Malik, Home"
+            aria-label="MIM, Moeez Islam Malik, Home"
             className="group inline-flex items-center gap-2.5 text-ink transition hover:text-accent"
           >
             <span className="grid h-8 w-8 place-items-center rounded-md bg-navy font-display text-[13px] font-bold leading-none tracking-tight text-white shadow-sm transition group-hover:scale-[1.03]">
@@ -1358,7 +1358,7 @@ export default function Home() {
               <div className="overflow-hidden rounded-lg border border-border">
                 <Image
                   src="/images/profile.jpg"
-                  alt="Moeez Malik — Business Analyst"
+                  alt="Moeez Malik, Business Analyst"
                   width={720}
                   height={900}
                   className="h-auto w-full object-cover transition duration-500 hover:scale-[1.02]"
@@ -1446,7 +1446,7 @@ export default function Home() {
             <p className="section-label">Projects</p>
             <h2 className="section-title">Analytics work</h2>
             <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-              BI, analytics, and ML projects spanning telecom, markets, product, and housing — each linked to GitHub.
+              BI, analytics, and ML projects spanning telecom, markets, product, and housing. Each linked to GitHub.
             </p>
           </motion.div>
 
@@ -1557,7 +1557,7 @@ export default function Home() {
                 <h2 className="section-title">Leadership Experiences</h2>
                 <p className="mt-2 max-w-2xl text-sm text-ink-muted">
                   {leadershipAll.length} concurrent roles spanning founder positions, international student advocacy,
-                  admissions, academic support, and cultural community — held alongside a full academic load and four internships.
+                  admissions, academic support, and cultural community. Held alongside a full academic load and four internships.
                 </p>
               </div>
               <a
@@ -1626,7 +1626,7 @@ export default function Home() {
 
             <motion.div variants={fadeUp} className="analyst-card mt-6 flex flex-col gap-2 p-5 text-center md:flex-row md:items-center md:justify-between md:text-left">
               <p className="text-sm text-ink-muted">
-                <span className="font-medium text-ink">{leadershipAll.length}+ concurrent roles</span> alongside full academics, four internships, and three org presidencies —
+                <span className="font-medium text-ink">{leadershipAll.length}+ concurrent roles</span> alongside full academics, four internships, and three org presidencies  - 
                 sustained community commitment at every level.
               </p>
               <a
@@ -1654,7 +1654,7 @@ export default function Home() {
             <p className="section-label">Research</p>
             <h2 className="section-title">Publication</h2>
             <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-              Peer-deposited capstone research in DePauw&apos;s scholarly commons.
+              DePauw Scholarly Commons and the Business Analytics Commons.
             </p>
           </motion.div>
 
@@ -1712,24 +1712,27 @@ export default function Home() {
                   Let&apos;s talk data &amp; strategy.
                 </h2>
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-white/70">
-                  BI, telecom analytics, and data strategy — open to roles and serious collaborations.
+                  BI, telecom analytics, and data strategy. Open to roles and serious collaborations.
                 </p>
               </div>
-              <div className="mt-10 space-y-3 border-t border-white/10 pt-6">
+              <div className="mt-10 flex items-center gap-3 border-t border-white/10 pt-6">
                 {[
-                  { href: "mailto:moeezislammalik@gmail.com", label: "moeezislammalik@gmail.com" },
-                  { href: "https://www.linkedin.com/in/moeez-malik/", label: "linkedin.com/in/moeez-malik", external: true },
-                  { href: "https://github.com/moeezislammalik", label: "github.com/moeezislammalik", external: true },
-                  { href: "/MoeezMalik_Resume_2026-2.pdf", label: "Resume (PDF)", external: true },
+                  { href: "mailto:moeezislammalik@gmail.com", label: "Email", icon: "/logos/mail.svg" },
+                  { href: "https://www.linkedin.com/in/moeez-malik/", label: "LinkedIn", icon: "/logos/linkedin.svg", external: true },
+                  { href: "https://github.com/moeezislammalik", label: "GitHub", icon: "/logos/github.svg", external: true },
+                  { href: "/MoeezMalik_Resume_2026-2.pdf", label: "Resume", icon: "/logos/file.svg", external: true },
                 ].map((link) => (
                   <a
                     key={link.label}
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noreferrer" : undefined}
-                    className="block text-sm text-white/80 transition hover:text-white"
+                    aria-label={link.label}
+                    title={link.label}
+                    className="inline-flex h-11 w-11 items-center justify-center rounded-md border border-white/20 bg-white/[0.04] text-white transition hover:border-white hover:bg-white/[0.1]"
                   >
-                    {link.label}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={link.icon} alt="" className="h-5 w-5 brightness-0 invert" />
                   </a>
                 ))}
               </div>
@@ -1738,7 +1741,7 @@ export default function Home() {
             <motion.div variants={fadeUp} className="bg-surface p-8 md:p-10">
               <div className="mb-6 border-b border-border pb-5">
                 <h3 className="font-display text-xl text-ink">Send a note</h3>
-                <p className="mt-1 text-sm text-ink-muted">Direct to my inbox — usually a quick reply.</p>
+                <p className="mt-1 text-sm text-ink-muted">Direct to my inbox. Usually a quick reply.</p>
               </div>
               <ContactForm />
             </motion.div>
