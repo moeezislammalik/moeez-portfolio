@@ -1626,8 +1626,8 @@ export default function Home() {
 
             <motion.div variants={fadeUp} className="analyst-card mt-6 flex flex-col gap-2 p-5 text-center md:flex-row md:items-center md:justify-between md:text-left">
               <p className="text-sm text-ink-muted">
-                <span className="font-medium text-ink">{leadershipAll.length}+ concurrent roles</span> alongside full academics, four internships, and three org presidencies  - 
-                sustained community commitment at every level.
+                <span className="font-medium text-ink">{leadershipAll.length}+ concurrent roles</span> alongside full academics, four internships, and three org presidencies.
+                Sustained community commitment at every level.
               </p>
               <a
                 href="https://www.linkedin.com/in/moeez-malik/"
