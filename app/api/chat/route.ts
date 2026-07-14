@@ -126,40 +126,44 @@ CERTIFICATIONS (all earned)
 7. IBM AI Expert — IBM
 
 ════════════════════════════════════════
-PROJECTS (highlighted)
+PROJECTS (highlighted — all on GitHub under moeezislammalik)
 ════════════════════════════════════════
 0. Automated Business Decision Engine — SENIOR CAPSTONE
-   - End-to-end ML system: ingests structured business data, runs classification + regression scoring, surfaces ranked recommendations
-   - Built as Moeez's senior capstone — replaces manual analyst review for routine decisions
-   - Web dashboard makes the model output accessible to non-technical decision-makers
-   - Stack: Python, scikit-learn, FastAPI, React, PostgreSQL
+   - Flask app: CSV upload → weighted risk rules → explainable High/Medium/Low scores + SQLite history + REST API
+   - 60 automated tests + GitHub Actions CI
+   - https://github.com/moeezislammalik/automated-business-decision-engine
+   - Stack: Python, Flask, SQLite, pytest
 
-1. Telecom Customer Churn Analysis & Prediction
-   - Analyzed telecom customer data (tenure, contract type, service mix) to flag at-risk customers
-   - Built classification models using Python and scikit-learn
-   - Created a risk-ranked churn segmentation framework for retention teams
-   - Stack: Python, SQL, Power BI, scikit-learn, Databricks
+1. Instagram Product Analytics & AI Insights
+   - Full-stack analytics: executive KPIs, funnels, A/B tests, churn/Prophet/SHAP, LangChain AI analyst
+   - 1M+ synthetic events
+   - https://github.com/moeezislammalik/instagram-product-analytics
+   - Stack: Python, Streamlit, SQL, scikit-learn, Prophet, LangChain
 
-2. Broadband Adoption BI Dashboard (Cable One)
-   - Power BI dashboards with star-schema design covering 24 US states
-   - Executive-level views for adoption rate, market penetration, and trend analysis
-   - Stack: Power BI, SQL, DAX, Databricks
+2. ETF Portfolio Monitoring & Trade Reconciliation
+   - Daily ETF ops: NAV/returns, trade-settlement-cash recon, exceptions, Streamlit + Power BI reporting
+   - https://github.com/moeezislammalik/etf-reconciliation-platform
+   - Stack: Python, Streamlit, SQL, Power BI
 
-3. Anomaly Detection on Financial Transaction Data (Mastercard context)
-   - Processed 2M+ transaction rows using Python, SQL, and PySpark
-   - Trained Random Forest and XGBoost classifiers
-   - Achieved AUC-ROC of 0.90 and precision@5% of 70%
-   - Stack: Python, SQL, PySpark, XGBoost, Random Forest
+3. Customer Churn & Revenue Optimization
+   - 2M+ transactions, DuckDB SQL analytics, gradient-boosting churn model (AUC-ROC 0.90), Streamlit KPIs
+   - https://github.com/moeezislammalik/customer-churn-revenue-optimization
+   - Stack: Python, SQL, DuckDB, scikit-learn, Streamlit
 
-4. AI Agents in Finance — "Ask Moeez" prototype
-   - LangChain + OpenAI-powered agent that answers structured finance questions
-   - Accelerates DCF analysis and churn workflows
-   - Reduced manual analysis time by 43% in prototype tests
+4. Broadband Adoption BI Dashboard
+   - Power BI star-schema suite across 24 US states (de-identified portfolio publish)
+   - https://github.com/moeezislammalik/broadband-adoption-bi
+   - Stack: Power BI, SQL, DAX
+
+5. AI-Powered Financial Assistant — Ask Moeez
+   - LangChain + OpenAI agent for DCF, churn insights, retention economics
+   - 43% faster analysis in prototype tests; also embedded on moeezmalik.com
+   - https://github.com/moeezislammalik/ask-moeez-financial-assistant
    - Stack: LangChain, OpenAI API, Python
 
-5. Real Estate Price Prediction
-   - Regression models with full EDA, feature engineering, and model comparison
-   - Explains housing price drivers from structured data
+6. Housing Price Prediction & Analysis
+   - California Housing regression: EDA + Random Forest vs Gradient Boosting (R² 0.81, MAE ~$33K)
+   - https://github.com/moeezislammalik/housing-price-prediction
    - Stack: Python, pandas, scikit-learn
 
 ════════════════════════════════════════
@@ -249,7 +253,7 @@ const FALLBACK_RESPONSES: { keywords: string[]; response: string }[] = [
   {
     keywords: ["project", "built", "portfolio", "work on"],
     response:
-      "Key projects: Telecom churn prediction model, Broadband adoption BI dashboard (24 states), Anomaly detection on 2M+ transactions (AUC 0.90), AI finance assistant prototype (LangChain + OpenAI, 43% time saved), and Real estate price prediction. All combine Python, SQL, and BI tooling with real business context.",
+      "Key GitHub projects: Automated Business Decision Engine (senior capstone), Instagram Product Analytics, ETF reconciliation platform, Customer Churn & Revenue Optimization (2M+ txns, AUC 0.90), Broadband Adoption BI (24 states), Ask Moeez financial assistant (LangChain + OpenAI, 43% time saved), and Housing Price Prediction (R² 0.81). All are linked from the Projects section on moeezmalik.com.",
   },
   {
     keywords: ["churn", "retention", "customer"],

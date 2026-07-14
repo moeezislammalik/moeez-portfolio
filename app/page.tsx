@@ -204,69 +204,81 @@ const projects: {
   linkLabel?: string;
 }[] = [
   {
-    title: "Telecom Customer Churn Analysis & Prediction",
-    description:
-      "Analyzed telecom customer data to surface drivers of churn (tenure, contract type, service mix). Built classification models to flag at-risk customers.",
-    impact: "Data-driven risk-ranking framework enabling more targeted retention planning.",
-    tools: "Python · SQL · Power BI · scikit-learn · Databricks",
-    icon: "/logos/python.svg",
-    chips: ["Telecom data", "Risk-ranked segments", "Churn prediction model"],
-  },
-  {
     title: "Automated Business Decision Engine",
     description:
-      "Senior capstone — an end-to-end system that ingests structured business data, runs ML-driven scoring (classification + regression), and surfaces ranked recommendations through a clean dashboard for non-technical decision-makers.",
-    impact: "Replaces routine manual analyst review with a repeatable decision pipeline — faster, more consistent business outcomes.",
-    tools: "Python · scikit-learn · FastAPI · React · PostgreSQL",
+      "Senior capstone — Flask web app that ingests CSV business data, applies weighted risk rules, scores each record, and returns explainable High / Medium / Low classifications with SQLite history and a REST API.",
+    impact: "Replaces routine manual analyst review with a transparent, testable decision pipeline (60 automated tests + CI).",
+    tools: "Python · Flask · SQLite · pytest · GitHub Actions",
     icon: "/logos/python.svg",
-    chips: ["Senior capstone", "End-to-end ML pipeline", "Decision dashboard"],
+    chips: ["Senior capstone", "Explainable scoring", "REST API + CI"],
+    link: "https://github.com/moeezislammalik/automated-business-decision-engine",
+    linkLabel: "View on GitHub",
+  },
+  {
+    title: "Instagram Product Analytics & AI Insights",
+    description:
+      "Full-stack product analytics platform inspired by Meta’s Instagram team — executive KPIs, funnels, A/B testing, churn/Prophet forecasting, SHAP explainability, and a LangChain AI analyst over synthetic event data.",
+    impact: "One portfolio system covering BI, experimentation, ML, and natural-language analytics end to end.",
+    tools: "Python · Streamlit · SQL · scikit-learn · Prophet · LangChain",
+    icon: "/logos/python.svg",
+    chips: ["1M+ synthetic events", "A/B + forecasting", "AI product analyst"],
+    link: "https://github.com/moeezislammalik/instagram-product-analytics",
+    linkLabel: "View on GitHub",
+  },
+  {
+    title: "ETF Portfolio Monitoring & Trade Reconciliation",
+    description:
+      "Operations platform for daily ETF portfolio monitoring — NAV and returns, trade/settlement/cash reconciliation, exception detection, and reporting via Streamlit dashboards and exports.",
+    impact: "Automates the ingest → reconcile → exception → report loop used by asset-management ops teams.",
+    tools: "Python · Streamlit · SQL · Power BI",
+    icon: "/logos/python.svg",
+    chips: ["Trade reconciliation", "Exception management", "Ops dashboards"],
+    link: "https://github.com/moeezislammalik/etf-reconciliation-platform",
+    linkLabel: "View on GitHub",
+  },
+  {
+    title: "Customer Churn & Revenue Optimization",
+    description:
+      "Analyzed 2M+ transaction records with Python and SQL (DuckDB) to identify churn drivers and revenue leakage, with Streamlit KPI dashboards and a gradient-boosting churn model.",
+    impact: "AUC-ROC 0.90 with ~20% fewer false positives — sharper retention targeting and leakage visibility.",
+    tools: "Python · SQL · DuckDB · scikit-learn · Streamlit",
+    icon: "/logos/python.svg",
+    chips: ["2M+ transactions", "AUC-ROC 0.90", "Revenue leakage"],
+    link: "https://github.com/moeezislammalik/customer-churn-revenue-optimization",
+    linkLabel: "View on GitHub",
   },
   {
     title: "Broadband Adoption BI Dashboard",
     description:
-      "Power BI suite with star-schema design for broadband adoption across 24 states. Executive views for adoption rate, penetration, and trend monitoring.",
+      "Power BI star-schema executive suite for broadband adoption across 24 states — adoption rate, penetration, gap analysis, and trend monitoring (de-identified for portfolio).",
     impact: "Single scalable BI source improving cross-market visibility for leadership.",
-    tools: "Power BI · SQL · DAX · Databricks",
+    tools: "Power BI · SQL · DAX · star schema",
     icon: "/logos/powerbi.svg",
-    chips: ["24 US states", "Star schema BI", "3 Power BI dashboards"],
-  },
-  {
-    title: "Anomaly Detection on Transaction Data",
-    description:
-      "Processed 2M+ transaction rows with Python, SQL, and PySpark. Trained Random Forest and XGBoost models achieving strong AUC-ROC and precision.",
-    impact: "Tighter anomaly triage with fewer false positives on high-volume financial data.",
-    tools: "Python · SQL · PySpark · XGBoost · Random Forest",
-    icon: "/logos/mastercard.svg",
-    chips: ["2M+ rows", "AUC-ROC 0.90", "XGBoost + Random Forest"],
+    chips: ["24 US states", "Star schema BI", "Executive PDF suite"],
+    link: "https://github.com/moeezislammalik/broadband-adoption-bi",
+    linkLabel: "View on GitHub",
   },
   {
     title: "AI-Powered Financial Assistant — Ask Moeez",
     description:
-      "J.P. Morgan–inspired AI agent using LangChain and the OpenAI API to automate financial analysis (DCF, churn insights) for faster, data-driven BI workflows.",
+      "J.P. Morgan–inspired AI agent using LangChain and the OpenAI API to automate financial analysis (DCF, churn insights, retention economics) for faster BI workflows.",
     impact: "Reduced analysis time by 43% while enabling faster, data-driven decision making.",
     tools: "LangChain · OpenAI API · Python",
     icon: "/logos/python.svg",
-    chips: ["43% time saved", "DCF + churn", "LangChain + OpenAI"],
+    chips: ["43% time saved", "DCF + churn tools", "LangChain agent"],
     link: "https://github.com/moeezislammalik/ask-moeez-financial-assistant",
     linkLabel: "View on GitHub",
   },
   {
-    title: "Real Estate Price Prediction & Analysis",
+    title: "Housing Price Prediction & Analysis",
     description:
-      "Regression models on structured housing features with thorough data cleaning, EDA, and feature engineering to explain price drivers.",
-    impact: "End-to-end analytical story from raw data to interpretable model output.",
-    tools: "Python · pandas · scikit-learn · visualization",
+      "Regression pipeline on the California Housing dataset — EDA, feature engineering, and Random Forest vs Gradient Boosting with ranked price-driver importances.",
+    impact: "Best model R² 0.81 with ~$33K MAE — clear story from raw housing features to interpretable drivers (income, occupancy, location).",
+    tools: "Python · pandas · scikit-learn",
     icon: "/logos/python.svg",
-    chips: ["Regression modeling", "EDA + cleaning", "Feature engineering"],
-  },
-  {
-    title: "Customer Segmentation & RFM Analysis",
-    description:
-      "Applied RFM (Recency, Frequency, Monetary) modeling combined with K-means clustering to segment customers by behavioral patterns — identifying high-value, at-risk, and dormant groups.",
-    impact: "Produced six actionable customer profiles, enabling targeted engagement strategies with an estimated 18% improvement in campaign efficiency.",
-    tools: "Python · pandas · scikit-learn · SQL · Tableau",
-    icon: "/logos/sql.svg",
-    chips: ["K-means clustering", "RFM modeling", "6 customer segments"],
+    chips: ["R² 0.81", "20K+ homes", "Feature importance"],
+    link: "https://github.com/moeezislammalik/housing-price-prediction",
+    linkLabel: "View on GitHub",
   },
 ];
 
@@ -1496,7 +1508,7 @@ export default function Home() {
             <p className="section-label">Projects</p>
             <h2 className="section-title">Analytics work</h2>
             <p className="mt-2 max-w-2xl text-sm text-ink-muted">
-              BI, analytics, and ML projects spanning telecom, finance, and data engineering.
+              BI, analytics, and ML projects spanning telecom, markets, product, and housing — each linked to GitHub.
             </p>
           </motion.div>
 
